@@ -1,5 +1,7 @@
 .AromaticForm {
   padding: 2rem;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  height: calc(100% - 6rem);
 }
 .Title {
   font-size: 2rem;

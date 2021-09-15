@@ -1,0 +1,62 @@
+.Feedback {
+  padding: 2rem;
+  background: #f8fafb 0% 0% no-repeat padding-box;
+  height: calc(100% - 6rem);
+}
+.Title {
+  color: #4d4f5c;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.Table {
+  width: min(90%, 110rem);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0px 0px 5px #b5b5b5;
+}
+.Heading {
+  color: var(--textcolor);
+  display: flex;
+  background: #efe9fa 0% 0% no-repeat padding-box;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.Heading > div {
+  padding: 1rem 0.5rem;
+  border-left: 0.5px solid #d5d5d5;
+  text-align: center;
+}
+.Data {
+  color: var(--textcolor);
+  display: flex;
+  font-size: 1.3rem;
+}
+.Data > div {
+  padding: 1.8rem 0.5rem;
+  border-left: 0.5px solid #d5d5d5;
+  border-bottom: 0.5px solid #d5d5d5;
+  text-align: center;
+  word-break: break-all;
+  /* overflow: auto; */
+}
+.FormName {
+  width: 15%;
+  border-left: 0 !important;
+}
+.TextFeild {
+  width: 20%;
+}
+.Phone {
+  width: 15%;
+}
+.Email {
+  width: 20%;
+}
+.RadioButton {
+  width: 15%;
+}
+.Name {
+  width: 15%;
+}
