@@ -113,7 +113,7 @@ function AromaticForm(props) {
           </div>
 
           <div>
-            <div className={classes.FormElTitle}>Radio Button</div>
+            <div className={classes.FormElTitle}>Please rate your overall dining experience</div>
             <div className={classes.Radio}>
               <input
                 type="radio"

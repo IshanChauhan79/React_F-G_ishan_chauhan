@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router";
 import classes from "./Form.module.css";
 import Header from "../Header/Header";
@@ -25,10 +25,23 @@ const dummyData = [
 ];
 
 function Form() {
-  const [data, setData] = useState(dummyData);
-  const addReviewHandler=(el)=>{
-    setData(prev=>[...prev,el])
-  }
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const reviews = JSON.parse(localStorage.getItem("reviews"));
+    if (reviews === null || reviews.length === 0) {
+      setData(dummyData);
+    } else {
+      setData(reviews);
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("reviews", JSON.stringify(data));
+  }, [data]);
+
+  const addReviewHandler = (el) => {
+    setData((prev) => [...prev, el]);
+  };
   return (
     <div className={classes.Form}>
       <Header />
@@ -37,7 +50,7 @@ function Form() {
           <Feedback data={data} />
         </Route>
         <Route path="/">
-          <AromaticForm  addReview={addReviewHandler}/>
+          <AromaticForm addReview={addReviewHandler} />
         </Route>
       </Switch>
     </div>
