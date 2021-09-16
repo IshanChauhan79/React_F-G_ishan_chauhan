@@ -1,13 +1,15 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router";
 import classes from "./AromaticForm.module.css";
 import { ReactComponent as India } from "../../../assets/images/india.svg";
 
-function AromaticForm() {
+function AromaticForm(props) {
   const [emailError, setEmailError] = useState(true);
-  // const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState(true);
   const [radioValue, setRadioValue] = useState("");
   const [nameError, setNameError] = useState(true);
+
+  const history = useHistory();
 
   const textField = useRef();
   const email = useRef();
@@ -15,7 +17,6 @@ function AromaticForm() {
   const name = useRef();
 
   const radioChange = (e) => {
-    console.log(e.target.value);
     setRadioValue(e.target.value);
   };
   const submitHandler = (e) => {
@@ -25,20 +26,30 @@ function AromaticForm() {
       /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let name_check = /^[a-zA-Z\s]*$/;
 
-    let emailValid = re.test(email.current.value.trim());
-    setEmailError(emailValid);
-
+    let nameValue = name.current.value.trim();
+    let emailValue = email.current.value.trim();
     let num = phone.current.value.toString();
-    setPhoneError(num.length === 10);
 
-    let nameValid = name_check.test(name.current.value.trim());
+    let numValue = "+91-" + num;
+
+    let emailValid = re.test(emailValue);
+    let nameValid = name_check.test(nameValue);
+
+    setEmailError(emailValid);
+    setPhoneError(num.length === 10);
     setNameError(nameValid);
 
-    console.log(textField.current.value);
-
-    console.log(email.current.value);
-    console.log(phone.current.value);
-    console.log(name.current.value);
+    if (emailValid && num && nameValid) {
+      props.addReview({
+        name: nameValue,
+        phone: numValue,
+        text: textField.current.value,
+        email: emailValue,
+        form: "Aromatic Bar",
+        radio: radioValue,
+      });
+      history.push("/submissions");
+    }
   };
 
   return (

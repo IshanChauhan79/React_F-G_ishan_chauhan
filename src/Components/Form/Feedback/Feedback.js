@@ -1,7 +1,19 @@
 import React from "react";
 import classes from "./Feedback.module.css";
 
-function Feedback() {
+function Feedback(props) {
+  const list = props.data.map((el, i) => {
+    return (
+      <div className={classes.Data} key={i}>
+        <div className={classes.FormName}>{el.form}</div>
+        <div className={classes.TextFeild}>{el.text}</div>
+        <div className={classes.Phone}>{el.phone}</div>
+        <div className={classes.Email}>{el.email}</div>
+        <div className={classes.RadioButton}>{el.radio}</div>
+        <div className={classes.Name}>{el.name}</div>
+      </div>
+    );
+  });
   return (
     <div className={classes.Feedback}>
       <div className={classes.Title}>All Feedback</div>
@@ -14,38 +26,7 @@ function Feedback() {
           <div className={classes.RadioButton}>Radio Button</div>
           <div className={classes.Name}>Name</div>
         </div>
-        <div className={classes.Data}>
-          <div className={classes.FormName}>Aromatic Bar</div>
-          <div className={classes.TextFeild}>Text Field</div>
-          <div className={classes.Phone}>+91-9999999999</div>
-          <div className={classes.Email}>abcdef@gmail.com</div>
-          <div className={classes.RadioButton}>Excellent</div>
-          <div className={classes.Name}>Ishan Chauhan</div>
-        </div>
-        <div className={classes.Data}>
-          <div className={classes.FormName}>Aromatic Bar</div>
-          <div className={classes.TextFeild}>Text Field</div>
-          <div className={classes.Phone}>+91-9999999999</div>
-          <div className={classes.Email}>abcdef@gmail.com</div>
-          <div className={classes.RadioButton}>Excellent</div>
-          <div className={classes.Name}>Ishan Chauhan</div>
-        </div>
-        <div className={classes.Data}>
-          <div className={classes.FormName}>Aromatic Bar</div>
-          <div className={classes.TextFeild}>Text Field</div>
-          <div className={classes.Phone}>+91-9999999999</div>
-          <div className={classes.Email}>abcdef@gmail.com</div>
-          <div className={classes.RadioButton}>Excellent</div>
-          <div className={classes.Name}>Ishan Chauhan</div>
-        </div>
-        <div className={classes.Data}>
-          <div className={classes.FormName}>Aromatic Bar</div>
-          <div className={classes.TextFeild}>Text Field</div>
-          <div className={classes.Phone}>+91-9999999999</div>
-          <div className={classes.Email}>abcdef@gmail.com</div>
-          <div className={classes.RadioButton}>Excellent</div>
-          <div className={classes.Name}>Ishan Chauhan</div>
-        </div>
+        {list}
       </div>
     </div>
   );
