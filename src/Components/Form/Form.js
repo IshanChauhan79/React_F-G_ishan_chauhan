@@ -24,9 +24,12 @@ const dummyData = [
   },
 ];
 
+// code for navigating between Aromatic and Table page ------------------------------------
+
 function Form() {
   const [data, setData] = useState([]);
 
+  // code for storing data locally----------------------------------------
   useEffect(() => {
     const reviews = JSON.parse(localStorage.getItem("reviews"));
     if (reviews === null || reviews.length === 0) {
@@ -42,6 +45,7 @@ function Form() {
   const addReviewHandler = (el) => {
     setData((prev) => [...prev, el]);
   };
+
   return (
     <div className={classes.Form}>
       <Header />

@@ -1,3 +1,18 @@
+Steps for using the project
+
+step 1 : navigate to the folder and use "npm install"
+
+step 2 : to run the project use "npm start"
+
+project description-
+
+project has 2 pages 1)Aromatic Form and 2) Table
+
+Filling and Submiting  the aromatic form will show thank you message and can be visible on the table page
+
+all the form data is sored locally and will not disapear on Re-load.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

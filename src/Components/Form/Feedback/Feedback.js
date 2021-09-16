@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Feedback.module.css";
 
+// return the feedback or Table page ------------------------
 function Feedback(props) {
   const list = props.data.map((el, i) => {
     return (
@@ -22,8 +23,8 @@ function Feedback(props) {
           <div className={classes.FormName}>Form Name</div>
           <div className={classes.TextFeild}>Text Field</div>
           <div className={classes.Phone}>Phone</div>
-          <div className={classes.Email}>Email Field</div>
-          <div className={classes.RadioButton}>Radio Button</div>
+          <div className={classes.Email}>Email</div>
+          <div className={classes.RadioButton}>Rating</div>
           <div className={classes.Name}>Name</div>
         </div>
         {list}
